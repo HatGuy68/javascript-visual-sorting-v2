@@ -14,16 +14,18 @@ function init() {
 
 function insertionSort(arr) {
     let n = arr.length,
-        i, key, j;
-    for (i = 1; i < n; i++) {
-        key = arr[i];
-        j = i - 1;
-        while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j];
-            j = j - 1;
+        i = 1,
+        j;
+    while (i < n) {
+        j = i;
+        while ((j > 0) && (arr[j - 1] > arr[j])) {
+            tmp = arr[j - 1]
+            arr[j - 1] = arr[j];
+            arr[j] = tmp;
             arrCopies.push([...arr]);
+            j -= 1;
         }
-        arr[j + 1] = key;
+        i += 1
     }
     arrCopies.push([...arr]);
 }
