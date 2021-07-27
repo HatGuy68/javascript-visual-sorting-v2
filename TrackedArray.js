@@ -1,4 +1,4 @@
-class TrackedArray {
+export default class TrackedArray {
     constructor(arr) {
         this.arr = [...arr];
         this.indices = [];
@@ -7,7 +7,7 @@ class TrackedArray {
         this.full_copies = [];
     }
 
-    // zip = (...rows) => [...rows[0]].map((_, c) => rows.map(row => row[c]))
+    zip = (...rows) => [...rows[0]].map((_, c) => rows.map(row => row[c]))
 
     reset() {
         this.indices = [];
@@ -23,13 +23,9 @@ class TrackedArray {
         this.full_copies.push([...this.arr]);
     }
 
-    // getActivity(index = 'null') {
-    //     if (index === 'null') {
-    //         return this.zip(this.indices, this.access_type)
-    //     } else {
-    //         return [this.indices[index], this.access_type[index]]
-    //     }
-    // }
+    getActivity() {
+        return this.zip(this.indices, this.access_type)
+    }
 
     get(key) {
         this.track(key, 'get');
@@ -46,21 +42,9 @@ class TrackedArray {
     }
 }
 
-function insertionSort(arr) {
-    let n = arr.length(),
-        i = 1,
-        j;
-    while (i < n) {
-        j = i;
-        while ((j > 0) && (arr.get(j - 1) > arr.get(j))) {
-            tmp = arr.get(j - 1)
-            arr.set(j - 1, arr.get(j));
-            arr.set(j, tmp);
-            j -= 1;
-        }
-        i += 1
-    }
-}
+
+
+/*
 
 function init() {
     arr = new TrackedArray(Array.from({ length: 15 }, () => Math.floor(Math.random() * 40)))
@@ -69,4 +53,4 @@ function init() {
     console.log(arr.full_copies)
 }
 
-init()
+*/
