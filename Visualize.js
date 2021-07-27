@@ -38,7 +38,13 @@ async function animate(copies, activities) {
     draw(copies[i - 1], 'end')
 }
 
-export { animate, draw }
+function reset() {
+    let canvas = document.getElementById('canvas');
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+export { animate, reset }
 
 /* 
 

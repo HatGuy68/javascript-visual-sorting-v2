@@ -1,10 +1,8 @@
 import TrackedArray from "./TrackedArray.js";
-import { animate, draw } from "./Visualize.js";
+import { animate, reset } from "./Visualize.js";
 import insertionSort from "./insertionSort.js";
 
 function init() {
-    let canvas = document.getElementById('canvas');
-    let ctx = canvas.getContext('2d');
 
     let speedSlider = document.getElementById("speed");
     let sizeSlider = document.getElementById("size");
@@ -13,6 +11,8 @@ function init() {
     let sortButton = document.getElementById("sortButton");
 
     let arr = new TrackedArray(generateRandomArray(sizeSlider.value));
+
+    reset()
 
     sizeSlider.oninput = () => init()
     arrContainer.innerHTML = arr.arr
