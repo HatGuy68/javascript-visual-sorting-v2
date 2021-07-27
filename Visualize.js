@@ -29,7 +29,6 @@ async function animate(copies, activities) {
     let timer = ms => new Promise(res => setTimeout(res, ms))
 
     let i;
-    console.log(copies)
 
     for (i = 0; i < copies.length; i++) {
         draw(copies[i], activities[i]);
