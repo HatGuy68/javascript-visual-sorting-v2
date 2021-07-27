@@ -1,4 +1,6 @@
 function draw(n, activity) {
+    let canvas = document.getElementById('canvas');
+    let ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     var barWidth = 10;
@@ -11,6 +13,8 @@ function draw(n, activity) {
                 ctx.fillStyle = '#3e4574';
             } else if (activity[1] === 'get') {
                 ctx.fillStyle = '#00a9ff';
+            } else if (activity[1] === 'end') {
+                ctx.fillStyle = '#008000';
             }
         }
         var h = n[i];
@@ -20,19 +24,23 @@ function draw(n, activity) {
     }
 }
 
-timer = ms => new Promise(res => setTimeout(res, ms))
+async function animate(copies, activities) {
 
-async function animate(copies) {
+    let timer = ms => new Promise(res => setTimeout(res, ms))
+
     let i;
     console.log(copies)
 
     for (i = 0; i < copies.length; i++) {
         draw(copies[i], activities[i]);
-        await timer(300);
+        await timer(100);
     }
+    draw(copies[i - 1], 'end')
 }
 
+export { animate, draw }
 
+/* 
 
 function init() {
     canvas = document.getElementById('canvas');
@@ -136,3 +144,5 @@ arr = [
 
 
 init()
+
+*/
