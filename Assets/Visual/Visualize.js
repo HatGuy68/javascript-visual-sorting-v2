@@ -7,7 +7,6 @@ function draw(n, activity) {
 
     var barWidth = Math.min(30, WIDTH / 15);
     var offset = (WIDTH - (barWidth * (Math.floor(sizeSlider.value) + 2))) / 2;
-    console.log(WIDTH, (sizeSlider.value + 1));
 
     for (var i = 0; i < n.length; i++) {
         ctx.fillStyle = '#008000';
@@ -20,8 +19,8 @@ function draw(n, activity) {
                 ctx.fillStyle = '#008000';
             }
         }
-        var h = n[i];
-        ctx.fillRect(offset, canvas.height - h - 10, barWidth, h);
+        var h = n[i] * (HEIGHT / 50);
+        ctx.fillRect(offset, canvas.height - h - 20, barWidth, h);
 
         offset += barWidth + 5;
     }
