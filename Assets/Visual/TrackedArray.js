@@ -40,6 +40,13 @@ export default class TrackedArray {
     length() {
         return this.arr.length;
     }
+
+    swap(key1, key2) {
+        let tmp;
+        tmp = this.get(key1);
+        this.set(key1, this.get(key2));
+        this.set(key2, tmp);
+    }
 }
 
 

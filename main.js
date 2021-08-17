@@ -1,6 +1,7 @@
-import TrackedArray from "./TrackedArray.js";
-import { animate, reset } from "./Visualize.js";
-import insertionSort from "./insertionSort.js";
+import TrackedArray from "./Assets/Visual/TrackedArray.js";
+import { animate, reset } from "./Assets/Visual/Visualize.js";
+import insertionSort from "./Assets/Sorting/insertionSort.js";
+import bubbleSort from "./Assets/Sorting/bubbleSort.js";
 
 function init() {
 
@@ -17,7 +18,7 @@ function init() {
     sizeSlider.oninput = () => init()
     arrContainer.innerHTML = arr.arr
 
-    insertionSort(arr)
+    bubbleSort(arr)
 
 }
 
