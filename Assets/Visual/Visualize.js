@@ -1,10 +1,13 @@
 function draw(n, activity) {
     let canvas = document.getElementById('canvas');
     let ctx = canvas.getContext('2d');
+    let WIDTH = canvas.width = Math.min(screen.width / 1.2, 640);
+    let HEIGHT = canvas.height = 360;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    var barWidth = 10;
-    var X = 30;
+    var barWidth = Math.min(30, WIDTH / 15);
+    var offset = (WIDTH - (barWidth * (Math.floor(sizeSlider.value) + 2))) / 2;
+    console.log(WIDTH, (sizeSlider.value + 1));
 
     for (var i = 0; i < n.length; i++) {
         ctx.fillStyle = '#008000';
@@ -18,9 +21,9 @@ function draw(n, activity) {
             }
         }
         var h = n[i];
-        ctx.fillRect(X, canvas.height - h - 10, barWidth, h);
+        ctx.fillRect(offset, canvas.height - h - 10, barWidth, h);
 
-        X += 15;
+        offset += barWidth + 5;
     }
 }
 
@@ -40,114 +43,9 @@ async function animate(copies, activities) {
 function reset() {
     let canvas = document.getElementById('canvas');
     let ctx = canvas.getContext('2d');
+    let WIDTH = canvas.width = Math.min(screen.width / 1.2, 640);
+    let HEIGHT = canvas.height = 360;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 export { animate, reset }
-
-/* 
-
-function init() {
-    canvas = document.getElementById('canvas');
-    ctx = canvas.getContext('2d');
-    full_copies = [
-        [19, 28, 37, 26, 18],
-        [19, 28, 37, 26, 18],
-        [19, 28, 37, 26, 18],
-        [19, 28, 37, 26, 18],
-        [19, 28, 37, 26, 18],
-        [19, 28, 37, 26, 18],
-        [19, 28, 37, 26, 18],
-        [19, 28, 37, 26, 18],
-        [19, 28, 37, 26, 18],
-        [19, 28, 26, 26, 18],
-        [19, 28, 26, 37, 18],
-        [19, 28, 26, 37, 18],
-        [19, 28, 26, 37, 18],
-        [19, 28, 26, 37, 18],
-        [19, 28, 26, 37, 18],
-        [19, 26, 26, 37, 18],
-        [19, 26, 28, 37, 18],
-        [19, 26, 28, 37, 18],
-        [19, 26, 28, 37, 18],
-        [19, 26, 28, 37, 18],
-        [19, 26, 28, 37, 18],
-        [19, 26, 28, 37, 18],
-        [19, 26, 28, 37, 18],
-        [19, 26, 28, 18, 18],
-        [19, 26, 28, 18, 37],
-        [19, 26, 28, 18, 37],
-        [19, 26, 28, 18, 37],
-        [19, 26, 28, 18, 37],
-        [19, 26, 28, 18, 37],
-        [19, 26, 18, 18, 37],
-        [19, 26, 18, 28, 37],
-        [19, 26, 18, 28, 37],
-        [19, 26, 18, 28, 37],
-        [19, 26, 18, 28, 37],
-        [19, 26, 18, 28, 37],
-        [19, 18, 18, 28, 37],
-        [19, 18, 26, 28, 37],
-        [19, 18, 26, 28, 37],
-        [19, 18, 26, 28, 37],
-        [19, 18, 26, 28, 37],
-        [19, 18, 26, 28, 37],
-        [18, 18, 26, 28, 37]
-    ]
-
-    activities = [
-        [0, "get"],
-        [1, "get"],
-        [1, "get"],
-        [2, "get"],
-        [2, "get"],
-        [3, "get"],
-        [2, "get"],
-        [3, "get"],
-        [2, "set"],
-        [3, "set"],
-        [1, "get"],
-        [2, "get"],
-        [1, "get"],
-        [2, "get"],
-        [1, "set"],
-        [2, "set"],
-        [0, "get"],
-        [1, "get"],
-        [3, "get"],
-        [4, "get"],
-        [3, "get"],
-        [4, "get"],
-        [3, "set"],
-        [4, "set"],
-        [2, "get"],
-        [3, "get"],
-        [2, "get"],
-        [3, "get"],
-        [2, "set"],
-        [3, "set"],
-        [1, "get"],
-        [2, "get"],
-        [1, "get"],
-        [2, "get"],
-        [1, "set"],
-        [2, "set"],
-        [0, "get"],
-        [1, "get"],
-        [0, "get"],
-        [1, "get"],
-        [0, "set"],
-        [1, "set"]
-    ]
-    animate(full_copies)
-}
-
-arr = [
-    18, 19, 26, 28, 37
-]
-
-
-
-init()
-
-*/

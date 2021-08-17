@@ -6,7 +6,7 @@ import bubbleSort from "./Assets/Sorting/bubbleSort.js";
 function init() {
 
     let speedSlider = document.getElementById("speed");
-    let sizeSlider = document.getElementById("size");
+    window.sizeSlider = document.getElementById("size");
 
     let arrContainer = document.getElementById("list");
     let sortButton = document.getElementById("sortButton");
